@@ -41,7 +41,7 @@ namespace api.Controllers
         }
         [EnableCors("AnotherPolicy")]
         [Route("getinvoices/{id}")]
-        public Customer GetInvoices(int id)
+        public Customer GetInvoice(int id)
         {
             IGetCustomer myObject = new ReadCustomerData();
             return myObject.GetCustomerInvoices(id); 
@@ -59,8 +59,10 @@ namespace api.Controllers
         // POST: api/ttc
         [EnableCors("AnotherPolicy")]
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Customer value)
         {
+            IInsertCustomer insertObject = new SaveCustomer(); 
+            insertObject.InsertCustomer(value);
         }
 
         // PUT: api/ttc/5

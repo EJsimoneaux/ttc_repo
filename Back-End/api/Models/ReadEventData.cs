@@ -70,6 +70,8 @@ namespace api.Models
             }
             return allEvent; 
         }
+
+
         public Event GetEvent(int id)
         {
             ConnectionString myConnection = new ConnectionString(); 
@@ -122,6 +124,43 @@ namespace api.Models
                     FName = rdr.GetString(5),
                     LName = rdr.GetString(6),
                     TimeDifference = rdr.GetInt32(7)}};
+        }
+        public Event GetByInvoice(int id)
+        {
+            DBConnection db = new DBConnection(); 
+            Event invoice = new Event(){};
+            bool isOpen = db.OpenConnection(); 
+            if (isOpen){
+                MySqlConnection conn = db.GetConn(); 
+                string stm = "SELECT customer.Cust_ID, customer.FName, customer.LName, customer.Email, Invoice_ID, InvoiceNo, AmountDue, invoice.Event_ID, customer.Account_No FROM invoice JOIN event ON invoice.Event_ID = event.Event_ID JOIN customer ON event.Event_ID = customer.Cust_ID WHERE invoice.Invoice_ID = @id";
+                MySqlCommand cmd = new MySqlCommand(stm, conn); 
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Prepare(); 
+                using(var rdr = cmd.ExecuteReader()){
+                    while (rdr.Read())
+                    {
+                        invoice.EventID = rdr.GetInt32(7);
+                        invoice.Customer = new Customer(){
+                        CustID = rdr.GetInt32(0),
+                        AccountNo = rdr.GetString(8), 
+                        FName = rdr.GetString(1),        
+                        LName = rdr.GetString(2),
+                        Email = rdr.GetString(3)};
+                        invoice.Invoice = new Invoice(){
+
+                            InvoiceID = rdr.GetInt32(4),
+                            InvoiceNo = rdr.GetString(5),
+                            AmountDue = rdr.GetDouble(6),
+                            EventID = rdr.GetInt32(7)
+                        }; 
+                        
+                    }
+                }
+                db.CloseConnection(); 
+                return invoice; 
+            }else{
+                return new Event(){}; 
+            }   
         }
     }
 }

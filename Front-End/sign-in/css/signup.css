@@ -1,8 +1,8 @@
 body {
-    --color-primary: #af190e; 
-    --color-primary-dark: #83120a;
-    --color-secondary: #111D4A;
-    --color-outline: #2f54da;  
+    --color-primary: #e71d36ff; 
+    --color-primary-dark: #190b28ff;
+    --color-secondary: #605f5eff;
+    --color-outline: #dbad6aff;  
     --color-error: #cc3333;
     --color-success: #4bb544; 
     --border-radius: 4px; 
@@ -13,7 +13,7 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 18px;
-    background: linear-gradient(0deg, #00000088 40%, #ffffff44 100%), url(/Front-End/media_resources/stock_photos/sign_in_BG.jpg);
+    background: linear-gradient(0deg, #00000088 40%, #ffffff44 100%), url(../images/sign_in_BG.jpg);
     background-size: cover;
 
 }

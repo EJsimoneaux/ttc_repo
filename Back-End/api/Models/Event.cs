@@ -12,6 +12,7 @@ namespace api.Models
         public double Cost { get; set; }
 
         public Customer Customer {get; set;}
+        public Invoice Invoice {get; set;}
 
         
     }

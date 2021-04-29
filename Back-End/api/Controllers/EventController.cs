@@ -33,6 +33,13 @@ namespace api.Controllers
             IGetEvent myObject = new ReadEventData(); 
             return myObject.NextEvent(); 
         }
+        [EnableCors("AnotherPolicy")]
+        [Route("getinvoice/{id}")]
+        public Event GetInvoice(int id)
+        {
+            IGetEvent myObject = new ReadEventData(); 
+            return myObject.GetByInvoice(id); 
+        }
 
         // GET: api/event/5
         [EnableCors("AnotherPolicy")]

@@ -1,14 +1,4 @@
-/* :root {
-    font-size: 16px;
-    font-family: 'Poppins';
-    --color-primary: #83120a;
-    --color-secondary: #09090B;
-    --color-dark-blue: #111D4A;
-    --color-outline: #2f54da;  
-    --color-error: #cc3333;
-    --color-success: #4bb544; 
 
-} */
 /*===== GOOGLE FONTS =====*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500;700&display=swap');
@@ -18,11 +8,11 @@
   --nav-width: 92px;
 
   /*===== Colores =====*/
-  --first-color: #83120a;
-  --bg-color: #12192C;
-  --sub-color: #B6CEFC;
-  --white-color: #FFF;
-  --blue-color: #0096c7; 
+  --sub-color: #190b28ff;
+  --bg-color: #605f5eff;
+  --earth-yellow: #dbad6aff;
+  --first-color: #e71d36ff;
+  --white-color: #f0f4efff;
   
  
   --body-font: 'Poppins', sans-serif;
@@ -273,20 +263,14 @@ a {
     font-size: 23px;
     color: var(--first-color);
 } 
-.menu-change { grid-area: menu-change; }
-.Extra1 { grid-area: Extra1; }
-.Extra2 { grid-area: Extra2; }
-
 .main #Dashboard{
-    font-family: 'Ubuntu', sans-serif;
-    color: var(--white-color);
-    background-color: var(--first-color);
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.45);
-    margin-top: 1%; 
-    margin-right: 1%;
-    padding-left: 3%;
-    font-size: 50px;
-    border-radius: 10px;
-    font-weight: 100;  
-    letter-spacing: 3px;
+  margin-left: 5%;
+  margin-right: 5%;
+  color: #FFF;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+  background-color: var(--first-color);
+  padding: 20px;
+  box-shadow: 0px 2px 10px 2px rgba(0,0,0,0.20);
+  border-radius: 10px;
 }

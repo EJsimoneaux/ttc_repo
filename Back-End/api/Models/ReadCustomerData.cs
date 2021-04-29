@@ -13,7 +13,7 @@ namespace api.Models
             bool isOpen = db.OpenConnection(); 
             if (isOpen){
                 MySqlConnection conn = db.GetConn(); 
-                string stm = "SELECT * FROM customer LEFT JOIN event ON customer.Cust_ID = event.Cust_ID GROUP BY customer.Cust_ID";
+                string stm = "SELECT * FROM customer";
                 MySqlCommand cmd = new MySqlCommand(stm, conn); 
                 List<Customer> allCustomers = new List<Customer>(); 
                 List<Event> allEvent = new List<Event>(); 
@@ -22,8 +22,7 @@ namespace api.Models
                 {
                     while (rdr.Read())
                     {
-                        allCustomers.Add(new Customer(){CustID=rdr.GetInt32(0), AccountNo = rdr.GetString(1), FName = rdr.GetString(2), LName = rdr.GetString(3), Company = rdr.GetString(4), Phone = rdr.GetString(5), Email = rdr.GetString(6), Event = new Event(){EventID = rdr.GetInt32(7), EventName = rdr.GetString(8), EventDate = rdr.GetDateTime(9), EventTime = rdr.GetString(10), Cost = rdr.GetDouble(11)}}); 
-
+                        allCustomers.Add(new Customer(){CustID=rdr.GetInt32(0), AccountNo = rdr.GetString(1), FName = rdr.GetString(2), LName = rdr.GetString(3), Company = rdr.GetString(4), Phone = rdr.GetString(5), Email = rdr.GetString(6)}); 
                     }
                    
                 }
@@ -119,12 +118,12 @@ namespace api.Models
             Customer customer = new Customer(){}; 
             string stm1 = "select * FROM customer WHERE Cust_ID = @id ";
             string stm2 = "select Invoice_ID, InvoiceNo, AmountDue, Invoice.Event_ID, Event.Name FROM customer JOIN event ON customer.Cust_ID = event.Cust_ID JOIN invoice ON event.Event_ID = invoice.Event_ID WHERE Customer.Cust_ID = @id HAVING AmountDue > 0"; 
-            ConnectionString myConnection = new ConnectionString(); 
-            string cs = myConnection.cs;
-            using (MySqlConnection connection = new MySqlConnection(cs))
+            DBConnection db = new DBConnection(); 
+            MySqlConnection conn = db.GetConn();
+            bool isOpen = db.OpenConnection(); 
+            if (isOpen)
             {
-                connection.Open(); 
-                using (MySqlCommand cmd1 = new MySqlCommand(stm1, connection))
+                using (MySqlCommand cmd1 = new MySqlCommand(stm1, conn))
                 {
                     cmd1.Parameters.AddWithValue("@id", id);
                     cmd1.Prepare(); 
@@ -134,7 +133,7 @@ namespace api.Models
                     customer.AccountNo = rdr.GetString(1); customer.FName = rdr.GetString(2); customer.LName = rdr.GetString(3); customer.Company = rdr.GetString(4); customer.Phone = rdr.GetString(5); customer.Email = rdr.GetString(6);
                     customer.InvoiceList = custInvoices; 
                 }
-                using (MySqlCommand cmd2 = new MySqlCommand(stm2, connection))
+                using (MySqlCommand cmd2 = new MySqlCommand(stm2, conn))
                 {
                     cmd2.Parameters.AddWithValue("@id", id);
                     cmd2.Prepare(); 
@@ -144,8 +143,14 @@ namespace api.Models
                         custInvoices.Add(new Invoice(){InvoiceID = rdr.GetInt32(0), InvoiceNo = rdr.GetString(1), AmountDue = rdr.GetDouble(2), EventID = rdr.GetInt32(3), EventName = rdr.GetString(4)});
                     }
                 }
+                db.CloseConnection(); 
+                return customer;
+            } else {
+                return new Customer(); 
             }
-            return customer;
+           
+                
+            
         }
     }
 }

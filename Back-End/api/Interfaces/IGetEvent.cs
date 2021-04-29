@@ -6,5 +6,6 @@ namespace api.Interfaces
     {
         Event GetEvent(int id); 
         Event NextEvent(); 
+        Event GetByInvoice(int id); 
     }
 }

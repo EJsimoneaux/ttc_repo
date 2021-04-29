@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/admin-customers.css">
+    <script src="https://smtpjs.com/v3/smtp.js"></script>  
+</head>
+<body onload="populateDashboard()">
+  <body id="body-pd">
+    <div class="l-navbar" id="navbar">
+        <nav class="nav">
+            <div>
+                <div class="nav__brand">
+                    <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
+                    <a href="#" class="nav__logo">T-Town Catering</a>
+                </div>
+                <div class="nav__list">
+                    <a href="../index.html" class="nav__link">
+                        <ion-icon name="home-outline" class="nav__icon"></ion-icon>
+                        <span class="nav__name">Dashboard</span>
+                    </a>
+                    <a href="customers.html" class="nav__link active">
+                        <ion-icon name="people-circle-outline" class="nav__icon"></ion-icon>
+                        <span class="nav__name">Customers</span>
+                    </a>
+                    <a href="events.html" class="nav__link">
+                        <ion-icon name="accessibility-outline" class="nav__icon"></ion-icon>
+                        <span class="nav__name">Events</span>
+                    </a>
+                </div>
+            </div>
+
+            <a href="#" class="nav__link">
+                <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
+                <span class="nav__name">Log Out</span>
+            </a>
+        </nav>
+    </div>
+    <div class="main">
+        <h1 id= "Customer-Header">Customers</h1>
+        <div class="grid-container">
+            <div class="Customers-Balance">
+                <!-- <h1>CUSTOMERS W/BALANCE SECTION</h1> -->
+            </div>
+            <div class="Create-Customer">
+                <div class="container">
+                    <form class="form form" id="login" onsubmit="return false" method="POST" name="new-customer">
+                        <h1 class="form__title">Create New User</h1>
+                        <div class="form__message form__message--error"></div> 
+                        <div class="form__input-group">
+                            <input type="text" class="form__input" autofocus placeholder="First Name" id="FirstName">
+                            <div class="form__input-error-message"></div>
+                        </div>
+                        <div class="form__input-group">
+                            <input type="text" class="form__input" autofocus placeholder="Last Name" id="LastName">
+                            <div class="form__input-error-message"></div>
+                        </div>
+                        <div class="form__input-group">
+                            <input type="text" class="form__input" autofocus placeholder="Company" id="Company">
+                            <div class="form__input-error-message"></div>
+                        </div>
+                        <div class="form__input-group">
+                            <input type="tel" class="form__input" autofocus placeholder="Phone" id="Phone">
+                            <div class="form__input-error-message"></div>
+                        </div>
+                        <div class="form__input-group" >
+                            <input type="email" class="form__input" autofocus placeholder="Email" id="Email">
+                            <div class="form__input-error-message"></div>
+                        </div>
+                        <button class="form__button" type="submit" onclick="makeCustomer()">
+                            <ion-icon name="add-circle-outline" id=></ion-icon>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="Customer-Inquiries">
+                
+            </div>
+          </div>
+          <div id= "editModal" class="modal">
+            <div class="modal-content">
+                
+                
+            </div>
+        </div>
+    </div>
+    <!-- ===== IONICONS ===== -->
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    
+    <!-- ===== MAIN JS ===== -->
+    <script src="../scripts/admin-customers.js"></script>
+    <script src="../scripts/nav.js"></script>
+</body>
+  </div>
+</body>
+</html>

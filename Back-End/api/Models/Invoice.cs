@@ -8,5 +8,6 @@ namespace api.Models
         public int EventID { get; set; }
         public string EventName {get; set;}
         public int NumberOfEvents {get; set;}
+
     }
 }

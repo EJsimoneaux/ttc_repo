@@ -10,7 +10,6 @@ function countCustomers(){
     html += customers.length+"</h1><h2>Total <br>Customers</h2></a>"; 
     document.querySelector('.Customers').innerHTML = html; 
 }
-
 function getCustomers(){
     const allPostsApiUrl = "https://localhost:5001/api/customer";
     fetch(allPostsApiUrl).then(function(response){

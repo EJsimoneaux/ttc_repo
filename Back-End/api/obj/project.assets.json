@@ -7140,24 +7140,26 @@
     ]
   },
   "packageFolders": {
-    "/Users/nicknorred/.nuget/packages/": {}
+    "C:\\Users\\willj\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/nicknorred/Documents/source/repos/spring2021/external/ttc_repo/Back-End/api/api.csproj",
+      "projectUniqueName": "C:\\Users\\willj\\Documents\\source\\repos\\ttc_repo\\back-end\\api\\api.csproj",
       "projectName": "api",
-      "projectPath": "/Users/nicknorred/Documents/source/repos/spring2021/external/ttc_repo/Back-End/api/api.csproj",
-      "packagesPath": "/Users/nicknorred/.nuget/packages/",
-      "outputPath": "/Users/nicknorred/Documents/source/repos/spring2021/external/ttc_repo/Back-End/api/obj/",
+      "projectPath": "C:\\Users\\willj\\Documents\\source\\repos\\ttc_repo\\back-end\\api\\api.csproj",
+      "packagesPath": "C:\\Users\\willj\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\willj\\Documents\\source\\repos\\ttc_repo\\back-end\\api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/nicknorred/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\willj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -7207,7 +7209,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
